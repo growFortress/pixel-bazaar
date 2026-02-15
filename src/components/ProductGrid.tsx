@@ -4,14 +4,16 @@ import ProductCard from "./ProductCard";
 
 interface ProductGridProps {
   activeCategory: string;
+  activeGameMode: string;
   onSelectProduct: (product: Product) => void;
 }
 
-export default function ProductGrid({ activeCategory, onSelectProduct }: ProductGridProps) {
-  const filtered =
-    activeCategory === "all"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+export default function ProductGrid({ activeCategory, activeGameMode, onSelectProduct }: ProductGridProps) {
+  const filtered = products.filter((p) => {
+    const modeMatch = p.gameMode === activeGameMode;
+    const catMatch = activeCategory === "all" || p.category === activeCategory;
+    return modeMatch && catMatch;
+  });
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-8">
@@ -30,7 +32,8 @@ export default function ProductGrid({ activeCategory, onSelectProduct }: Product
 
       {filtered.length === 0 && (
         <div className="text-center py-20 text-muted-foreground">
-          <p className="font-pixel text-sm">Brak produktów</p>
+          <p className="font-pixel text-sm">Brak produktów w tej kategorii</p>
+          <p className="text-xs mt-2">Sprawdź inne kategorie lub tryby gry</p>
         </div>
       )}
     </section>

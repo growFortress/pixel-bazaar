@@ -3,7 +3,7 @@ import floatingIsland from "@/assets/floating-island.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[60vh] flex flex-col items-center justify-center overflow-hidden noise-overlay">
+    <section className="relative min-h-[50vh] flex flex-col items-center justify-center overflow-hidden noise-overlay">
       {/* Floating island background */}
       <img
         src={floatingIsland}
@@ -34,16 +34,19 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
         >
-          <h1 className="font-pixel text-3xl sm:text-5xl md:text-6xl text-primary text-shadow-pixel tracking-wider mb-4 leading-tight">
-            ITEM SHOP
+          <h1 className="font-pixel text-3xl sm:text-5xl md:text-6xl text-primary text-shadow-pixel tracking-wider mb-2 leading-tight">
+            CRAFTED.PL
           </h1>
+          <p className="font-pixel text-xs sm:text-sm text-muted-foreground tracking-widest">
+            ITEM SHOP
+          </p>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-muted-foreground text-lg sm:text-xl max-w-md mx-auto"
+          className="text-muted-foreground text-base sm:text-lg max-w-md mx-auto mt-4"
         >
           Ulepsz swoją rozgrywkę na najlepszym serwerze
         </motion.p>
@@ -52,14 +55,14 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="mt-8 flex items-center justify-center gap-6 text-sm text-muted-foreground"
+          className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground"
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
             <span>127 online</span>
           </div>
           <div className="w-px h-4 bg-border" />
-          <span>play.myserver.pl</span>
+          <span className="font-mono text-foreground">crafted.pl</span>
         </motion.div>
       </div>
     </section>

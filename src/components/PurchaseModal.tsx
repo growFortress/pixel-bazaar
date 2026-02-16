@@ -53,7 +53,7 @@ export default function PurchaseModal({ product, onClose }: PurchaseModalProps) 
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="fixed inset-0 z-50 bg-background/60 backdrop-blur-md flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 bg-foreground/20 backdrop-blur-md flex items-center justify-center p-4"
       >
         <motion.div
           key="modal"

@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 230 20% 8%;
-    --foreground: 220 20% 90%;
+    --background: 220 20% 97%;
+    --foreground: 230 25% 15%;
 
-    --card: 230 18% 12%;
-    --card-foreground: 220 20% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 15%;
 
-    --popover: 230 18% 12%;
-    --popover-foreground: 220 20% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 15%;
 
-    --primary: 43 96% 56%;
-    --primary-foreground: 230 20% 8%;
+    --primary: 43 96% 46%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 230 15% 18%;
-    --secondary-foreground: 220 20% 85%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 230 20% 30%;
 
-    --muted: 230 15% 16%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 42%;
 
-    --accent: 265 70% 60%;
-    --accent-foreground: 220 20% 95%;
+    --accent: 265 70% 58%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 230 15% 20%;
-    --input: 230 15% 20%;
-    --ring: 43 96% 56%;
+    --border: 220 14% 88%;
+    --input: 220 14% 88%;
+    --ring: 43 96% 46%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
-    --gold: 43 96% 56%;
-    --gold-dim: 43 70% 40%;
-    --gold-glow: 43 100% 70%;
-    --emerald: 145 63% 49%;
-    --surface-hover: 230 18% 16%;
-    --surface-elevated: 230 18% 14%;
+    --gold: 43 96% 46%;
+    --gold-dim: 43 70% 35%;
+    --gold-glow: 43 100% 60%;
+    --emerald: 145 63% 42%;
+    --surface-hover: 220 14% 94%;
+    --surface-elevated: 220 14% 96%;
 
-    --sidebar-background: 230 20% 8%;
-    --sidebar-foreground: 220 20% 90%;
-    --sidebar-primary: 43 96% 56%;
-    --sidebar-primary-foreground: 230 20% 8%;
-    --sidebar-accent: 230 15% 18%;
-    --sidebar-accent-foreground: 220 20% 85%;
-    --sidebar-border: 230 15% 20%;
-    --sidebar-ring: 43 96% 56%;
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 230 25% 15%;
+    --sidebar-primary: 43 96% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 230 20% 30%;
+    --sidebar-border: 220 14% 88%;
+    --sidebar-ring: 43 96% 46%;
   }
 }
 
@@ -76,23 +76,24 @@
   /* Pixel border effect using box-shadow */
   .pixel-border {
     box-shadow:
-      inset -4px -4px 0px 0px hsl(var(--border)),
-      inset 4px 4px 0px 0px hsl(230 18% 22%);
+      0 1px 3px 0 hsl(220 14% 80% / 0.4),
+      0 1px 2px -1px hsl(220 14% 80% / 0.4);
+    border: 1px solid hsl(var(--border));
   }
 
   .pixel-border-gold {
     box-shadow:
-      inset -4px -4px 0px 0px hsl(var(--gold-dim)),
-      inset 4px 4px 0px 0px hsl(var(--gold-glow));
+      0 2px 8px 0 hsl(var(--gold) / 0.2),
+      0 0 0 1px hsl(var(--gold) / 0.3);
   }
 
   /* Gold glow effect */
   .glow-gold {
-    box-shadow: 0 0 20px hsl(var(--gold) / 0.3), 0 0 40px hsl(var(--gold) / 0.1);
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.15), 0 0 30px hsl(var(--gold) / 0.05);
   }
 
   .glow-gold-intense {
-    box-shadow: 0 0 20px hsl(var(--gold) / 0.5), 0 0 60px hsl(var(--gold) / 0.2);
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.25), 0 0 40px hsl(var(--gold) / 0.1);
   }
 
   /* Dithering noise texture overlay */
@@ -101,14 +102,14 @@
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
+    opacity: 0.02;
     pointer-events: none;
     z-index: 0;
   }
 
   /* Minecraft-style text shadow */
   .text-shadow-pixel {
-    text-shadow: 2px 2px 0px hsl(var(--background));
+    text-shadow: 2px 2px 0px hsl(var(--background) / 0.3);
   }
 
   /* Achievement toast style */
@@ -152,6 +153,7 @@
   }
   .card-lift:hover {
     transform: translateY(-4px);
+    box-shadow: 0 8px 25px -5px hsl(220 14% 70% / 0.3);
   }
 
   /* Bouncy modal */

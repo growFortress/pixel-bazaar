@@ -15,10 +15,10 @@ export default function GameModeSelector({ activeMode, onModeChange }: GameModeS
           <button
             key={mode.id}
             onClick={() => onModeChange(mode.id)}
-            className={`relative group flex flex-col items-center gap-2 px-3 py-4 rounded transition-all ${
+            className={`relative group flex flex-col items-center gap-2 px-3 py-4 rounded-lg transition-all ${
               activeMode === mode.id
                 ? "bg-card pixel-border-gold"
-                : "bg-card/50 pixel-border hover:bg-card"
+                : "bg-card pixel-border hover:bg-surface-hover"
             }`}
           >
             <span className="text-2xl">{mode.icon}</span>
@@ -30,7 +30,7 @@ export default function GameModeSelector({ activeMode, onModeChange }: GameModeS
             {activeMode === mode.id && (
               <motion.div
                 layoutId="active-mode-glow"
-                className="absolute inset-0 rounded glow-gold opacity-30 pointer-events-none"
+                className="absolute inset-0 rounded-lg glow-gold opacity-30 pointer-events-none"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
               />
             )}

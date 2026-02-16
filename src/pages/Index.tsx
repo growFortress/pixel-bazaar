@@ -46,9 +46,51 @@ const Index = () => {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        <p>© 2026 Crafted.pl — Wszystkie prawa zastrzeżone</p>
-        <p className="mt-1">Nie jesteśmy powiązani z Mojang Studios</p>
+      <footer className="border-t border-border bg-card mt-8">
+        <div className="max-w-6xl mx-auto px-4 py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {/* Brand */}
+            <div>
+              <h3 className="font-pixel text-sm text-primary mb-3">CRAFTED.PL</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Najlepszy serwer Minecraft w Polsce. Dołącz do naszej społeczności!
+              </p>
+              <p className="text-sm font-mono text-foreground mt-2">crafted.pl</p>
+            </div>
+
+            {/* Links */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-3 text-sm">Informacje</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Regulamin</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Polityka prywatności</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Kontakt z administracją</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
+              </ul>
+            </div>
+
+            {/* Socials */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-3 text-sm">Dołącz do nas</h4>
+              <div className="flex flex-wrap gap-2">
+                <a href="#" className="inline-flex items-center gap-2 px-3 py-2 bg-secondary rounded text-sm text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
+                  💬 Discord
+                </a>
+                <a href="#" className="inline-flex items-center gap-2 px-3 py-2 bg-secondary rounded text-sm text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
+                  🎵 TikTok
+                </a>
+                <a href="#" className="inline-flex items-center gap-2 px-3 py-2 bg-secondary rounded text-sm text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors">
+                  📺 YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
+            <p>© 2026 Crafted.pl — Wszystkie prawa zastrzeżone</p>
+            <p>Nie jesteśmy powiązani z Mojang Studios</p>
+          </div>
+        </div>
       </footer>
     </div>
   );

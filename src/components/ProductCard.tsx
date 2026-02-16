@@ -14,9 +14,9 @@ const imageMap: Record<string, string> = {
 
 const rarityColors: Record<string, string> = {
   common: "text-muted-foreground border-border",
-  rare: "text-blue-400 border-blue-500/30",
-  epic: "text-purple-400 border-purple-500/30",
-  legendary: "text-primary border-primary/30",
+  rare: "text-blue-500 border-blue-400/30 bg-blue-50",
+  epic: "text-purple-600 border-purple-400/30 bg-purple-50",
+  legendary: "text-primary border-primary/30 bg-primary/10",
 };
 
 const rarityLabels: Record<string, string> = {
@@ -42,7 +42,7 @@ export default function ProductCard({ product, index, onSelect }: ProductCardPro
     >
       <button
         onClick={() => onSelect(product)}
-        className="w-full text-left bg-card pixel-border rounded p-4 card-lift cursor-pointer relative overflow-hidden"
+        className="w-full text-left bg-card pixel-border rounded-lg p-4 card-lift cursor-pointer relative overflow-hidden"
       >
         {/* Popular badge */}
         {product.popular && (
@@ -58,7 +58,6 @@ export default function ProductCard({ product, index, onSelect }: ProductCardPro
             alt={product.name}
             className="w-20 h-20 object-contain pixel-art transition-transform duration-200 group-hover:scale-110 group-hover:-translate-y-1"
           />
-          {/* Glow behind image */}
           <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
 

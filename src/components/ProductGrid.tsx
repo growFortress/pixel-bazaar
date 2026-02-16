@@ -1,4 +1,4 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Product, products } from "@/data/shopData";
 import ProductCard from "./ProductCard";
 
@@ -17,8 +17,15 @@ export default function ProductGrid({ activeCategory, activeGameMode, onSelectPr
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`${activeGameMode}-${activeCategory}`}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.25 }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
           {filtered.map((product, i) => (
             <ProductCard
               key={product.id}
@@ -27,8 +34,8 @@ export default function ProductGrid({ activeCategory, activeGameMode, onSelectPr
               onSelect={onSelectProduct}
             />
           ))}
-        </AnimatePresence>
-      </div>
+        </motion.div>
+      </AnimatePresence>
 
       {filtered.length === 0 && (
         <div className="text-center py-20 text-muted-foreground">

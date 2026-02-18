@@ -3,7 +3,7 @@ import floatingIsland from "@/assets/floating-island.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[30vh] flex flex-col items-center justify-center overflow-hidden noise-overlay py-8">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden noise-overlay py-4">
       {/* Floating island background */}
       <img
         src={floatingIsland}

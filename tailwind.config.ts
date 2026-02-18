@@ -59,6 +59,12 @@ export default {
         emerald: "hsl(var(--emerald))",
         "surface-hover": "hsl(var(--surface-hover))",
         "surface-elevated": "hsl(var(--surface-elevated))",
+        rarity: {
+          common: "hsl(var(--rarity-common))",
+          rare: "hsl(var(--rarity-rare))",
+          epic: "hsl(var(--rarity-epic))",
+          legendary: "hsl(var(--rarity-legendary))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

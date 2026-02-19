@@ -14,6 +14,20 @@ const imageMap: Record<string, string> = {
   key: keyImg,
 };
 
+const rarityColors: Record<string, string> = {
+  common: "text-rarity-common",
+  rare: "text-rarity-rare",
+  epic: "text-rarity-epic",
+  legendary: "text-rarity-legendary",
+};
+
+const rarityLabels: Record<string, string> = {
+  common: "Zwykły",
+  rare: "Rzadki",
+  epic: "Epicki",
+  legendary: "Legendarny",
+};
+
 interface PurchaseModalProps {
   product: Product | null;
   onClose: () => void;
@@ -66,7 +80,12 @@ export default function PurchaseModal({ product, onClose }: PurchaseModalProps) 
         >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border">
-            <h2 className="font-pixel text-sm text-primary">{product.name}</h2>
+            <div className="flex items-center gap-2">
+              <h2 className="font-pixel text-sm text-primary">{product.name}</h2>
+              <span className={`text-[10px] font-pixel ${rarityColors[product.rarity]}`}>
+                [{rarityLabels[product.rarity]}]
+              </span>
+            </div>
             <button onClick={onClose} className="text-muted-foreground hover:text-foreground text-xl leading-none">
               ✕
             </button>
@@ -87,6 +106,21 @@ export default function PurchaseModal({ product, onClose }: PurchaseModalProps) 
             {/* Right: Details */}
             <div className="flex-1 space-y-4">
               <p className="text-sm text-muted-foreground">{product.description}</p>
+
+              {/* Bonuses list */}
+              {product.bonuses && product.bonuses.length > 0 && (
+                <div className="bg-muted/50 rounded-lg p-3 space-y-1.5">
+                  <span className="text-[10px] font-pixel text-primary tracking-wider">ZAWARTOŚĆ</span>
+                  <ul className="space-y-1">
+                    {product.bonuses.map((bonus, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-foreground/80">
+                        <span className="text-primary mt-0.5 text-[10px]">✦</span>
+                        <span>{bonus}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Nick input */}
               <div>

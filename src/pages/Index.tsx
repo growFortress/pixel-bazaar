@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Product } from "@/data/shopData";
 import HeroSection from "@/components/HeroSection";
 import GameModeSelector from "@/components/GameModeSelector";
@@ -7,15 +7,29 @@ import ProductGrid from "@/components/ProductGrid";
 import PurchaseModal from "@/components/PurchaseModal";
 import PlayerStatus from "@/components/PlayerStatus";
 import AchievementToasts from "@/components/AchievementToasts";
+import GameModePicker from "@/components/GameModePicker";
+
+const STORAGE_KEY = "crafted-preferred-mode";
 
 const Index = () => {
-  const [activeMode, setActiveMode] = useState("og-lucky-skyblock");
+  const [activeMode, setActiveMode] = useState(() => {
+    return localStorage.getItem(STORAGE_KEY) || "";
+  });
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [showPicker, setShowPicker] = useState(() => {
+    return !localStorage.getItem(STORAGE_KEY);
+  });
 
   const handleModeChange = (id: string) => {
     setActiveMode(id);
     setActiveCategory("all");
+    localStorage.setItem(STORAGE_KEY, id);
+  };
+
+  const handlePickerSelect = (id: string) => {
+    handleModeChange(id);
+    setShowPicker(false);
   };
 
   return (
@@ -37,6 +51,8 @@ const Index = () => {
           onSelectProduct={setSelectedProduct}
         />
       </div>
+
+      {showPicker && <GameModePicker onSelect={handlePickerSelect} />}
 
       {selectedProduct && (
         <PurchaseModal

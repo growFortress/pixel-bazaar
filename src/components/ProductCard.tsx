@@ -27,10 +27,10 @@ const rarityLabels: Record<string, string> = {
 };
 
 const rarityImageBg: Record<string, string> = {
-  common: "bg-gradient-to-b from-muted/40 to-muted/80",
-  rare: "bg-gradient-to-b from-rarity-rare/5 to-rarity-rare/15",
-  epic: "bg-gradient-to-b from-rarity-epic/5 to-rarity-epic/15",
-  legendary: "bg-gradient-to-b from-rarity-legendary/5 to-rarity-legendary/20",
+  common: "bg-gradient-to-b from-muted/20 to-muted/40",
+  rare: "bg-gradient-to-b from-rarity-rare/5 to-rarity-rare/10",
+  epic: "bg-gradient-to-b from-rarity-epic/5 to-rarity-epic/10",
+  legendary: "bg-gradient-to-b from-amber-50 to-rarity-legendary/10",
 };
 
 const rarityRingAccent: Record<string, string> = {

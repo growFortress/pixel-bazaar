@@ -82,7 +82,7 @@ export default function ProductCard({ product, index, onSelect }: ProductCardPro
           <img
             src={imageMap[product.image]}
             alt={product.name}
-            className="w-36 h-36 object-contain pixel-art transition-transform duration-300 group-hover:scale-110 img-hover-float drop-shadow-xl mix-blend-screen contrast-150 saturate-200 brightness-125"
+            className="w-36 h-36 object-contain pixel-art transition-transform duration-300 group-hover:scale-110 img-hover-float drop-shadow-lg"
           />
           {/* Subtle radial glow behind image */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Product } from "@/data/shopData";
 import HeroSection from "@/components/HeroSection";
 import GameModeSelector from "@/components/GameModeSelector";
-import CategoryTabs from "@/components/CategoryTabs";
 import ProductGrid from "@/components/ProductGrid";
 import PurchaseModal from "@/components/PurchaseModal";
 import PlayerStatus from "@/components/PlayerStatus";
@@ -15,7 +14,6 @@ const Index = () => {
   const [activeMode, setActiveMode] = useState(() => {
     return localStorage.getItem(STORAGE_KEY) || "";
   });
-  const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [showPicker, setShowPicker] = useState(() => {
     return !localStorage.getItem(STORAGE_KEY);
@@ -23,7 +21,6 @@ const Index = () => {
 
   const handleModeChange = (id: string) => {
     setActiveMode(id);
-    setActiveCategory("all");
     localStorage.setItem(STORAGE_KEY, id);
   };
 
@@ -41,12 +38,7 @@ const Index = () => {
       <GameModeSelector activeMode={activeMode} onModeChange={handleModeChange} />
 
       <div className="border-t border-border">
-        <CategoryTabs
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-        />
         <ProductGrid
-          activeCategory={activeCategory}
           activeGameMode={activeMode}
           onSelectProduct={setSelectedProduct}
         />
